@@ -3,6 +3,7 @@ import datetime
 import json
 import logging
 import traceback
+import random
 from typing import Tuple
 
 from hit.ids import idslogin
@@ -114,10 +115,11 @@ def cxsq(session: Session, date: datetime.date):
         # d.strftime('%-m-%-d')
         # '12-7'
 
+        reason = ["吃午饭","购买生活用品","买东西","理发","出去吃饭","采购","买书","购物","买水果","剪头发","吃晚饭"];
         info = {
             'model': {
                 'rq': date.strftime('%Y-%-m-%-d'),
-                'cxly': ' ',
+                'cxly': random.choice(reason),
                 'cxlx': '01',
                 'yjlxjsrq': '',
                 'id': _id,
@@ -143,3 +145,4 @@ def cxsq(session: Session, date: datetime.date):
 
 if __name__ == '__main__':
     main()
+
